@@ -115,7 +115,8 @@ def minimal_s(pi1, pi2, d1, d2, s_i1, s_i2, arr, sommets):
             l_fin = np.where(temp_arr == temp_arr.min())[0][k]
 
     return sommets[l_fin]
-
+def result_output(index_):
+    return Dijkstra(arr, sommet_d1, sommets, index_)
 
 z = 0
 k = 0
@@ -140,17 +141,15 @@ for item in d.values():
 sommet_d1 = Initials[0]
 sommet_d2 = Initials[1]
 
-userChoice = 1
-
-while userChoice == 1 or userChoice == 2:
-    userChoice = int(input("Veuillez choisir l'algorithm 1 ou 2 ou les deux 3> "))
-    if userChoice == 1 or userChoice==3:
-        d1, pi1 = Dijkstra(arr, sommet_d1, sommets, 1)
-        d2, pi2 = Dijkstra(arr, sommet_d2, sommets, 1)
-        l_fin = compare(d1, d2, spot_rdv, sommets)
-        print("Le sommet minimisant la somme des temps de parcours des deux amis: ", l_fin)
-    if userChoice == 2 or userChoice==3:
-        d1, pi1 = Dijkstra(arr, sommet_d1, sommets, 2)
-        d2, pi2 = Dijkstra(arr, sommet_d2, sommets, 2)
-        l_f = minimal_s(pi1, pi2, d1, d2, sommet_d1, sommet_d2, arr, sommets)
-        print("Le sommet minimisant la somme du nombre de chemins/arcs parcourus par les deux amis: ", l_f)
+userChoice = -1
+userChoice = int(input("Veuillez choisir l'algorithm 1 ou 2 ou les deux 0> "))
+if userChoice == 1 or userChoice==0:
+    d1, pi1 = result_output (1)
+    d2, pi2 = result_output (1)
+    l_fin = compare(d1, d2, spot_rdv, sommets)
+    print("Le sommet minimisant la somme des temps de parcours des deux amis: ", l_fin)
+if userChoice == 2 or userChoice==0:
+    d1, pi1 = result_output (2)
+    d2, pi2 = result_output (2)
+    l_f = minimal_s(pi1, pi2, d1, d2, sommet_d1, sommet_d2, arr, sommets)
+    print("Le sommet minimisant la somme du nombre de chemins/arcs parcourus par les deux amis: ", l_f)
