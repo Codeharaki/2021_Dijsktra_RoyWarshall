@@ -142,7 +142,7 @@ sommet_d1 = Initials[0]
 sommet_d2 = Initials[1]
 
 userChoice = -1
-userChoice = int(input("Veuillez choisir l'algorithm 1 ou 2 ou les deux 0> "))
+userChoice = int(input("Veuillez choisir l'algorithme de configuration 1 ou 2. 0 Pour choisir les deux "))
 if userChoice == 1 or userChoice==0:
     d1, pi1 = result_output (1)
     d2, pi2 = result_output (1)
